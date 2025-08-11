@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership Competency Assessment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .intro h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .intro p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .question-container {
+            margin-bottom: 30px;
+            padding: 25px;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .question-container:hover {
+            border-color: #4facfe;
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.1);
+        }
+
+        .question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .competency-tag {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 2px solid #f0f0f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .option:hover {
+            border-color: #4facfe;
+            background: #f8f9ff;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+
+        .option.selected {
+            border-color: #4facfe;
+            background: #e3f2fd;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 40px auto 0;
+            transition: transform 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .results {
+            display: none;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .results h3 {
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 1.6rem;
+        }
+
+        .competency-result {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #ddd;
+        }
+
+        .competency-result.beginner { border-left-color: #ff6b6b; }
+        .competency-result.intermediate { border-left-color: #feca57; }
+        .competency-result.advanced { border-left-color: #48dbfb; }
+        .competency-result.expert { border-left-color: #1dd1a1; }
+
+        .competency-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .competency-level {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .level-beginner {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .level-intermediate {
+            background: #feca57;
+            color: white;
+        }
+
+        .level-advanced {
+            background: #48dbfb;
+            color: white;
+        }
+
+        .level-expert {
+            background: #1dd1a1;
+            color: white;
+        }
+
+        .recommendations {
+            margin-top: 30px;
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #e3f2fd;
+        }
+
+        .recommendations h4 {
+            color: #1976d2;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .recommendation-item {
+            margin-bottom: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .recommendation-item:last-child {
+            border-bottom: none;
+        }
+
+        .priority-high {
+            color: #d32f2f;
+            font-weight: 600;
+        }
+
+        .priority-medium {
+            color: #f57c00;
+            font-weight: 600;
+        }
+
+        .priority-low {
+            color: #388e3c;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Leadership Competency Assessment</h1>
+            <p>Discover your leadership strengths and development opportunities</p>
+        </div>
+        
+        <div class="content">
+            <div class="intro">
+                <h2>Welcome to Your Leadership Journey</h2>
+                <p>This assessment will evaluate your current level across 8 key leadership competencies. Answer honestly based on your current capabilities and recent experiences. The results will guide your personalized learning path.</p>
+            </div>
+
+            <form id="assessmentForm">
+                <!-- Leadership and Team Management -->
+                <div class="question-container">
+                    <div class="competency-tag">Leadership & Team Management</div>
+                    <div class="question">How comfortable are you with delegating important tasks to team members?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="1">
+                            I prefer to handle important tasks myself to ensure quality
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="2">
+                            I delegate simple tasks but keep complex ones for myself
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="3">
+                            I delegate regularly and provide support when needed
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="4">
+                            I confidently delegate all types of tasks and trust my team completely
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Communication and Feedback -->
+                <div class="question-container">
+                    <div class="competency-tag">Communication & Feedback</div>
+                    <div class="question">When giving constructive feedback, how do you typically approach it?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="1">
+                            I avoid giving negative feedback to maintain relationships
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="2">
+                            I give feedback when absolutely necessary, but find it uncomfortable
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="3">
+                            I give feedback regularly using structured approaches like "I" statements
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="4">
+                            I seamlessly integrate feedback into daily interactions and create safe spaces for dialogue
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Employee Motivation and Engagement -->
+                <div class="question-container">
+                    <div class="competency-tag">Motivation & Engagement</div>
+                    <div class="question">How well do you understand what motivates each individual on your team?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q3" value="1">
+                            I assume everyone is motivated by similar things (salary, recognition)
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="2">
+                            I have a general sense but haven't explored it deeply with each person
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="3">
+                            I regularly discuss motivators and adapt my approach for different team members
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="4">
+                            I deeply understand each person's intrinsic motivators and create personalized engagement strategies
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Task Setting -->
+                <div class="question-container">
+                    <div class="competency-tag">Task Setting</div>
+                    <div class="question">When assigning tasks, how specific and structured are your instructions?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q4" value="1">
+                            I give general direction and expect people to figure out the details
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="2">
+                            I provide some details but often need to clarify later
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="3">
+                            I use SMART goals and clear specifications most of the time
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="4">
+                            I consistently use structured frameworks and confirm understanding before proceeding
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Conflict Resolution -->
+                <div class="question-container">
+                    <div class="competency-tag">Conflict Resolution</div>
+                    <div class="question">How do you typically handle conflicts between team members?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q5" value="1">
+                            I avoid getting involved unless it severely impacts work
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="2">
+                            I step in when needed but often struggle to find the right approach
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="3">
+                            I address conflicts promptly using structured communication techniques
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="4">
+                            I proactively prevent conflicts and facilitate resolution using multiple proven frameworks
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Employee Development -->
+                <div class="question-container">
+                    <div class="competency-tag">Employee Development</div>
+                    <div class="question">How systematically do you approach developing your team members' skills?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q6" value="1">
+                            Development happens naturally through work experience
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="2">
+                            I occasionally suggest training or learning opportunities
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="3">
+                            I create development plans and conduct regular development conversations
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="4">
+                            I implement comprehensive mentoring programs and personalized development strategies
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Change Management -->
+                <div class="question-container">
+                    <div class="competency-tag">Change Management</div>
+                    <div class="question">When implementing organizational changes, how do you manage team adaptation?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q7" value="1">
+                            I announce changes and expect people to adapt
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="2">
+                            I explain the reasons and provide some support during transitions
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="3">
+                            I use structured change management approaches and monitor progress
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="4">
+                            I anticipate resistance, create comprehensive change strategies, and support people through each stage
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Cross-Functional Collaboration -->
+                <div class="question-container">
+                    <div class="competency-tag">Cross-Functional Collaboration</div>
+                    <div class="question">How effectively do you facilitate collaboration between different departments or teams?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q8" value="1">
+                            I focus mainly on my own team and let others handle their relationships
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q8" value="2">
+                            I participate in cross-functional meetings when required
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q8" value="3">
+                            I actively build relationships and facilitate communication between teams
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q8" value="4">
+                            I strategically align teams, anticipate collaboration challenges, and create sustainable partnership frameworks
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Get My Results</button>
+            </form>
+
+            <div class="results" id="results">
+                <h3>Your Leadership Competency Profile</h3>
+                <div id="competencyResults"></div>
+                <div class="recommendations" id="recommendations">
+                    <h4>Your Personalized Learning Recommendations</h4>
+                    <div id="recommendationsList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const competencies = [
+            'Leadership & Team Management',
+            'Communication & Feedback', 
+            'Motivation & Engagement',
+            'Task Setting',
+            'Conflict Resolution',
+            'Employee Development',
+            'Change Management',
+            'Cross-Functional Collaboration'
+        ];
+
+        const lessons = [
+            'Lesson 1 - Leadership and Team Management',
+            'Lesson 2 - Communication and Feedback',
+            'Lesson 3 - Employee Motivation and Engagement', 
+            'Lesson 4 - Task Setting',
+            'Lesson 5 - Conflict Resolution',
+            'Lesson 6 - Employee Development',
+            'Lesson 7 - Change Management',
+            'Lesson 8 - Cross-Functional Collaboration'
+        ];
+
+        function getLevelName(score) {
+            if (score <= 1) return 'Beginner';
+            if (score <= 2) return 'Intermediate';
+            if (score <= 3) return 'Advanced';
+            return 'Expert';
+        }
+
+        function getLevelClass(score) {
+            if (score <= 1) return 'beginner';
+            if (score <= 2) return 'intermediate';
+            if (score <= 3) return 'advanced';
+            return 'expert';
+        }
+
+        function getPriority(score) {
+            if (score <= 1) return 'high';
+            if (score <= 2) return 'medium';
+            return 'low';
+        }
+
+        function getPriorityText(score) {
+            if (score <= 1) return 'High Priority';
+            if (score <= 2) return 'Medium Priority';
+            return 'Low Priority';
+        }
+
+        // Add click handlers for options
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const radioInput = this.querySelector('input[type="radio"]');
+                radioInput.checked = true;
+                
+                // Remove selected class from siblings
+                this.parentNode.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+            });
+        });
+
+        document.getElementById('assessmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const scores = [];
+            
+            for (let i = 1; i <= 8; i++) {
+                const value = formData.get(`q${i}`);
+                scores.push(parseInt(value) || 1);
+            }
+            
+            displayResults(scores);
+        });
+
+        function displayResults(scores) {
+            const resultsDiv = document.getElementById('results');
+            const competencyResultsDiv = document.getElementById('competencyResults');
+            const recommendationsDiv = document.getElementById('recommendationsList');
+            
+            // Display competency results
+            let competencyHTML = '';
+            scores.forEach((score, index) => {
+                const level = getLevelName(score);
+                const levelClass = getLevelClass(score);
+                
+                competencyHTML += `
+                    <div class="competency-result ${levelClass}">
+                        <span class="competency-name">${competencies[index]}</span>
+                        <span class="competency-level level-${levelClass}">${level}</span>
+                    </div>
+                `;
+            });
+            
+            competencyResultsDiv.innerHTML = competencyHTML;
+            
+            // Generate recommendations
+            let recommendationsHTML = '';
+            const sortedCompetencies = scores.map((score, index) => ({
+                score,
+                index,
+                competency: competencies[index],
+                lesson: lessons[index]
+            })).sort((a, b) => a.score - b.score);
+            
+            sortedCompetencies.forEach(item => {
+                const priority = getPriority(item.score);
+                const priorityText = getPriorityText(item.score);
+                
+                if (item.score <= 2) {
+                    recommendationsHTML += `
+                        <div class="recommendation-item">
+                            <span class="priority-${priority}">${priorityText}:</span>
+                            Focus on <strong>${item.lesson}</strong> to strengthen your ${item.competency.toLowerCase()} skills
+                        </div>
+                    `;
+                }
+            });
+            
+            if (recommendationsHTML === '') {
+                recommendationsHTML = '<div class="recommendation-item">Excellent! You show strong competency across all areas. Consider advanced leadership challenges to continue growing.</div>';
+            }
+            
+            recommendationsDiv.innerHTML = recommendationsHTML;
+            resultsDiv.style.display = 'block';
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
