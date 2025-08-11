@@ -5,263 +5,263 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leadership Competency Assessment</title>
     <style>
-       * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: #f8f9fa;
-    min-height: 100vh;
-    padding: 20px;
-    color: #333;
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
+        .container {
+            max-width: 1035px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
 
-.header {
-    background: #4a90e2;
-    color: white;
-    padding: 40px;
-    text-align: center;
-}
+        .header {
+            background: #4a90e2;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
 
-.header h1 {
-    font-size: 2.2rem;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
 
-.header p {
-    font-size: 1rem;
-    opacity: 0.9;
-    font-weight: 400;
-}
+        .header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
 
-.content {
-    padding: 40px;
-}
+        .content {
+            padding: 40px;
+        }
 
-.intro {
-    text-align: center;
-    margin-bottom: 40px;
-}
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-.intro h2 {
-    color: #333;
-    margin-bottom: 12px;
-    font-size: 1.5rem;
-    font-weight: 600;
-}
+        .intro h2 {
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
 
-.intro p {
-    color: #666;
-    line-height: 1.6;
-    font-size: 1rem;
-}
+        .intro p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
 
-.question-container {
-    margin-bottom: 32px;
-    padding: 24px;
-    border: 1px solid #e1e5e9;
-    border-radius: 8px;
-    background: white;
-}
+        .question-container {
+            margin-bottom: 32px;
+            padding: 24px;
+            border: 1px solid #e1e5e9;
+            border-radius: 8px;
+            background: white;
+        }
 
-.question-container:hover {
-    border-color: #4a90e2;
-    box-shadow: 0 2px 4px rgba(74, 144, 226, 0.1);
-}
+        .question-container:hover {
+            border-color: #4a90e2;
+            box-shadow: 0 2px 4px rgba(74, 144, 226, 0.1);
+        }
 
-.question {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 16px;
-    line-height: 1.4;
-}
+        .question {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
 
-.competency-tag {
-    display: inline-block;
-    background: #e8f2ff;
-    color: #4a90e2;
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    margin-bottom: 16px;
-    border: 1px solid #d1e7ff;
-}
+        .competency-tag {
+            display: inline-block;
+            background: #e8f2ff;
+            color: #4a90e2;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            border: 1px solid #d1e7ff;
+        }
 
-.options {
-    display: grid;
-    gap: 12px;
-}
+        .options {
+            display: grid;
+            gap: 12px;
+        }
 
-.option {
-    display: flex;
-    align-items: flex-start;
-    padding: 16px;
-    border: 1px solid #e1e5e9;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: #fafbfc;
-}
+        .option {
+            display: flex;
+            align-items: flex-start;
+            padding: 16px;
+            border: 1px solid #e1e5e9;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #fafbfc;
+        }
 
-.option:hover {
-    border-color: #4a90e2;
-    background: #f0f8ff;
-}
+        .option:hover {
+            border-color: #4a90e2;
+            background: #f0f8ff;
+        }
 
-.option input[type="radio"] {
-    margin-right: 12px;
-    margin-top: 2px;
-    accent-color: #4a90e2;
-}
+        .option input[type="radio"] {
+            margin-right: 12px;
+            margin-top: 2px;
+            accent-color: #4a90e2;
+        }
 
-.option.selected {
-    border-color: #4a90e2;
-    background: #e8f2ff;
-}
+        .option.selected {
+            border-color: #4a90e2;
+            background: #e8f2ff;
+        }
 
-.submit-btn {
-    background: #4a90e2;
-    color: white;
-    border: none;
-    padding: 14px 32px;
-    font-size: 1rem;
-    font-weight: 500;
-    border-radius: 6px;
-    cursor: pointer;
-    display: block;
-    margin: 40px auto 0;
-    transition: background 0.2s ease;
-}
+        .submit-btn {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            display: block;
+            margin: 40px auto 0;
+            transition: background 0.2s ease;
+        }
 
-.submit-btn:hover {
-    background: #357abd;
-}
+        .submit-btn:hover {
+            background: #357abd;
+        }
 
-.submit-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
 
-.results {
-    display: none;
-    padding: 32px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    margin-top: 32px;
-    border: 1px solid #e1e5e9;
-}
+        .results {
+            display: none;
+            padding: 32px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-top: 32px;
+            border: 1px solid #e1e5e9;
+        }
 
-.results h3 {
-    color: #333;
-    margin-bottom: 24px;
-    text-align: center;
-    font-size: 1.4rem;
-    font-weight: 600;
-}
+        .results h3 {
+            color: #333;
+            margin-bottom: 24px;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
 
-.competency-result {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 20px;
-    margin-bottom: 12px;
-    background: white;
-    border-radius: 6px;
-    border: 1px solid #e1e5e9;
-}
+        .competency-result {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #e1e5e9;
+        }
 
-.competency-result.beginner { border-left: 4px solid #e74c3c; }
-.competency-result.intermediate { border-left: 4px solid #f39c12; }
-.competency-result.advanced { border-left: 4px solid #4a90e2; }
-.competency-result.expert { border-left: 4px solid #27ae60; }
+        .competency-result.beginner { border-left: 4px solid #e74c3c; }
+        .competency-result.intermediate { border-left: 4px solid #f39c12; }
+        .competency-result.advanced { border-left: 4px solid #4a90e2; }
+        .competency-result.expert { border-left: 4px solid #27ae60; }
 
-.competency-name {
-    font-weight: 500;
-    color: #333;
-}
+        .competency-name {
+            font-weight: 500;
+            color: #333;
+        }
 
-.competency-level {
-    padding: 4px 12px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
+        .competency-level {
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
 
-.level-beginner {
-    background: #e74c3c;
-    color: white;
-}
+        .level-beginner {
+            background: #e74c3c;
+            color: white;
+        }
 
-.level-intermediate {
-    background: #f39c12;
-    color: white;
-}
+        .level-intermediate {
+            background: #f39c12;
+            color: white;
+        }
 
-.level-advanced {
-    background: #4a90e2;
-    color: white;
-}
+        .level-advanced {
+            background: #4a90e2;
+            color: white;
+        }
 
-.level-expert {
-    background: #27ae60;
-    color: white;
-}
+        .level-expert {
+            background: #27ae60;
+            color: white;
+        }
 
-.recommendations {
-    margin-top: 24px;
-    padding: 24px;
-    background: white;
-    border-radius: 6px;
-    border: 1px solid #e1e5e9;
-}
+        .recommendations {
+            margin-top: 24px;
+            padding: 24px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #e1e5e9;
+        }
 
-.recommendations h4 {
-    color: #4a90e2;
-    margin-bottom: 16px;
-    font-size: 1.2rem;
-    font-weight: 600;
-}
+        .recommendations h4 {
+            color: #4a90e2;
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
 
-.recommendation-item {
-    margin-bottom: 12px;
-    padding: 12px 0;
-    border-bottom: 1px solid #f0f0f0;
-    line-height: 1.5;
-}
+        .recommendation-item {
+            margin-bottom: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            line-height: 1.5;
+        }
 
-.recommendation-item:last-child {
-    border-bottom: none;
-}
+        .recommendation-item:last-child {
+            border-bottom: none;
+        }
 
-.priority-high {
-    color: #e74c3c;
-    font-weight: 600;
-}
+        .priority-high {
+            color: #e74c3c;
+            font-weight: 600;
+        }
 
-.priority-medium {
-    color: #f39c12;
-    font-weight: 600;
-}
+        .priority-medium {
+            color: #f39c12;
+            font-weight: 600;
+        }
 
-.priority-low {
-    color: #27ae60;
-    font-weight: 600;
-}
+        .priority-low {
+            color: #27ae60;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -278,9 +278,8 @@ body {
             </div>
 
             <form id="assessmentForm">
-                <!-- Leadership and Team Management -->
                 <div class="question-container">
-                    <div class="competency-tag">Leadership & Team Management</div>
+                    <div class="competency-tag">Leadership and Team Management</div>
                     <div class="question">How comfortable are you with delegating important tasks to team members?</div>
                     <div class="options">
                         <label class="option">
@@ -302,9 +301,8 @@ body {
                     </div>
                 </div>
 
-                <!-- Communication and Feedback -->
                 <div class="question-container">
-                    <div class="competency-tag">Communication & Feedback</div>
+                    <div class="competency-tag">Communication and Feedback</div>
                     <div class="question">When giving constructive feedback, how do you typically approach it?</div>
                     <div class="options">
                         <label class="option">
@@ -317,7 +315,7 @@ body {
                         </label>
                         <label class="option">
                             <input type="radio" name="q2" value="3">
-                            I give feedback regularly using structured approaches like "I" statements
+                            I give feedback regularly using structured approaches like I statements
                         </label>
                         <label class="option">
                             <input type="radio" name="q2" value="4">
@@ -326,9 +324,8 @@ body {
                     </div>
                 </div>
 
-                <!-- Employee Motivation and Engagement -->
                 <div class="question-container">
-                    <div class="competency-tag">Motivation & Engagement</div>
+                    <div class="competency-tag">Motivation and Engagement</div>
                     <div class="question">How well do you understand what motivates each individual on your team?</div>
                     <div class="options">
                         <label class="option">
@@ -337,7 +334,7 @@ body {
                         </label>
                         <label class="option">
                             <input type="radio" name="q3" value="2">
-                            I have a general sense but haven't explored it deeply with each person
+                            I have a general sense but have not explored it deeply with each person
                         </label>
                         <label class="option">
                             <input type="radio" name="q3" value="3">
@@ -345,12 +342,11 @@ body {
                         </label>
                         <label class="option">
                             <input type="radio" name="q3" value="4">
-                            I deeply understand each person's intrinsic motivators and create personalized engagement strategies
+                            I deeply understand each person intrinsic motivators and create personalized engagement strategies
                         </label>
                     </div>
                 </div>
 
-                <!-- Task Setting -->
                 <div class="question-container">
                     <div class="competency-tag">Task Setting</div>
                     <div class="question">When assigning tasks, how specific and structured are your instructions?</div>
@@ -374,7 +370,6 @@ body {
                     </div>
                 </div>
 
-                <!-- Conflict Resolution -->
                 <div class="question-container">
                     <div class="competency-tag">Conflict Resolution</div>
                     <div class="question">How do you typically handle conflicts between team members?</div>
@@ -398,10 +393,9 @@ body {
                     </div>
                 </div>
 
-                <!-- Employee Development -->
                 <div class="question-container">
                     <div class="competency-tag">Employee Development</div>
-                    <div class="question">How systematically do you approach developing your team members' skills?</div>
+                    <div class="question">How systematically do you approach developing your team members skills?</div>
                     <div class="options">
                         <label class="option">
                             <input type="radio" name="q6" value="1">
@@ -422,7 +416,6 @@ body {
                     </div>
                 </div>
 
-                <!-- Change Management -->
                 <div class="question-container">
                     <div class="competency-tag">Change Management</div>
                     <div class="question">When implementing organizational changes, how do you manage team adaptation?</div>
@@ -446,7 +439,6 @@ body {
                     </div>
                 </div>
 
-                <!-- Cross-Functional Collaboration -->
                 <div class="question-container">
                     <div class="competency-tag">Cross-Functional Collaboration</div>
                     <div class="question">How effectively do you facilitate collaboration between different departments or teams?</div>
@@ -485,10 +477,10 @@ body {
     </div>
 
     <script>
-        const competencies = [
-            'Leadership & Team Management',
-            'Communication & Feedback', 
-            'Motivation & Engagement',
+        var competencies = [
+            'Leadership and Team Management',
+            'Communication and Feedback', 
+            'Motivation and Engagement',
             'Task Setting',
             'Conflict Resolution',
             'Employee Development',
@@ -496,7 +488,7 @@ body {
             'Cross-Functional Collaboration'
         ];
 
-        const lessons = [
+        var lessons = [
             'Lesson 1 - Leadership and Team Management',
             'Lesson 2 - Communication and Feedback',
             'Lesson 3 - Employee Motivation and Engagement', 
@@ -533,79 +525,52 @@ body {
             return 'Low Priority';
         }
 
-        // Add click handlers for options
-        document.querySelectorAll('.option').forEach(option => {
-            option.addEventListener('click', function() {
-                const radioInput = this.querySelector('input[type="radio"]');
-                radioInput.checked = true;
-                
-                // Remove selected class from siblings
-                this.parentNode.querySelectorAll('.option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-                
-                // Add selected class to clicked option
-                this.classList.add('selected');
-            });
-        });
-
-        document.getElementById('assessmentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const scores = [];
-            
-            for (let i = 1; i <= 8; i++) {
-                const value = formData.get(`q${i}`);
-                scores.push(parseInt(value) || 1);
-            }
-            
-            displayResults(scores);
-        });
-
         function displayResults(scores) {
-            const resultsDiv = document.getElementById('results');
-            const competencyResultsDiv = document.getElementById('competencyResults');
-            const recommendationsDiv = document.getElementById('recommendationsList');
+            var resultsDiv = document.getElementById('results');
+            var competencyResultsDiv = document.getElementById('competencyResults');
+            var recommendationsDiv = document.getElementById('recommendationsList');
             
-            // Display competency results
-            let competencyHTML = '';
-            scores.forEach((score, index) => {
-                const level = getLevelName(score);
-                const levelClass = getLevelClass(score);
+            var competencyHTML = '';
+            for (var i = 0; i < scores.length; i++) {
+                var score = scores[i];
+                var level = getLevelName(score);
+                var levelClass = getLevelClass(score);
                 
-                competencyHTML += `
-                    <div class="competency-result ${levelClass}">
-                        <span class="competency-name">${competencies[index]}</span>
-                        <span class="competency-level level-${levelClass}">${level}</span>
-                    </div>
-                `;
-            });
+                competencyHTML += '<div class="competency-result ' + levelClass + '">' +
+                    '<span class="competency-name">' + competencies[i] + '</span>' +
+                    '<span class="competency-level level-' + levelClass + '">' + level + '</span>' +
+                    '</div>';
+            }
             
             competencyResultsDiv.innerHTML = competencyHTML;
             
-            // Generate recommendations
-            let recommendationsHTML = '';
-            const sortedCompetencies = scores.map((score, index) => ({
-                score,
-                index,
-                competency: competencies[index],
-                lesson: lessons[index]
-            })).sort((a, b) => a.score - b.score);
+            var recommendationsHTML = '';
+            var sortedCompetencies = [];
+            for (var i = 0; i < scores.length; i++) {
+                sortedCompetencies.push({
+                    score: scores[i],
+                    index: i,
+                    competency: competencies[i],
+                    lesson: lessons[i]
+                });
+            }
             
-            sortedCompetencies.forEach(item => {
-                const priority = getPriority(item.score);
-                const priorityText = getPriorityText(item.score);
+            sortedCompetencies.sort(function(a, b) {
+                return a.score - b.score;
+            });
+            
+            for (var i = 0; i < sortedCompetencies.length; i++) {
+                var item = sortedCompetencies[i];
+                var priority = getPriority(item.score);
+                var priorityText = getPriorityText(item.score);
                 
                 if (item.score <= 2) {
-                    recommendationsHTML += `
-                        <div class="recommendation-item">
-                            <span class="priority-${priority}">${priorityText}:</span>
-                            Focus on <strong>${item.lesson}</strong> to strengthen your ${item.competency.toLowerCase()} skills
-                        </div>
-                    `;
+                    recommendationsHTML += '<div class="recommendation-item">' +
+                        '<span class="priority-' + priority + '">' + priorityText + ':</span> ' +
+                        'Focus on <strong>' + item.lesson + '</strong> to strengthen your ' + item.competency.toLowerCase() + ' skills' +
+                        '</div>';
                 }
-            });
+            }
             
             if (recommendationsHTML === '') {
                 recommendationsHTML = '<div class="recommendation-item">Excellent! You show strong competency across all areas. Consider advanced leadership challenges to continue growing.</div>';
@@ -615,6 +580,37 @@ body {
             resultsDiv.style.display = 'block';
             resultsDiv.scrollIntoView({ behavior: 'smooth' });
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var options = document.querySelectorAll('.option');
+            for (var i = 0; i < options.length; i++) {
+                options[i].addEventListener('click', function() {
+                    var radioInput = this.querySelector('input[type="radio"]');
+                    radioInput.checked = true;
+                    
+                    var siblingOptions = this.parentNode.querySelectorAll('.option');
+                    for (var j = 0; j < siblingOptions.length; j++) {
+                        siblingOptions[j].classList.remove('selected');
+                    }
+                    
+                    this.classList.add('selected');
+                });
+            }
+
+            document.getElementById('assessmentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                var formData = new FormData(this);
+                var scores = [];
+                
+                for (var i = 1; i <= 8; i++) {
+                    var value = formData.get('q' + i);
+                    scores.push(parseInt(value) || 1);
+                }
+                
+                displayResults(scores);
+            });
+        });
     </script>
 </body>
 </html>
